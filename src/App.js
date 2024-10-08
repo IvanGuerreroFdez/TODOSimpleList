@@ -1,9 +1,21 @@
 import logo from './logo.svg';
 import './App.css';
+import Formulario from './components/Formulario';
+import { useState } from 'react';
+import List from './components/List';
 
 function App() {
+  const [tasks, setTask] = useState([]);
+
+  const handleTaskSent= (task) => {
+    setTask([...tasks, task]);
+  }
   return (
     <div className="App">
+
+      <Formulario tareasimple = {handleTaskSent}/>
+      <List tasklist = {tasks}/>
+
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
@@ -21,5 +33,4 @@ function App() {
     </div>
   );
 }
-
 export default App;
